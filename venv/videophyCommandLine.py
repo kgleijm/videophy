@@ -14,16 +14,17 @@ print('Number of arguments: {}'.format(len(sys.argv)))
 dirPath = sys.argv[1]
 title = sys.argv[2]
 fpsInput = int(sys.argv[3])
-print(dirPath)
-sourcePathString = dirPath + "/source"
+print("Directory path = " + dirPath)
+sourcePathString = dirPath + "\\source"
+print("sourcePathString = " + sourcePathString)
 
 # reading in files from that path
 path, dirs, files = next(os.walk(dirPath))
-print(path, dirs, files)
 clip_count = len(files)
-
+# print(files, "\n\n\n\n")
 # make sourceImagedirectory if not exists
 try:
+    print("Trying to make: ", sourcePathString)
     os.mkdir(sourcePathString)
 except:
     pass
@@ -31,13 +32,15 @@ except:
 # loop over all files in folder and store them as cv2 compatible images
 img = []
 for file in files:
-    img.append(cv2.imread(dirPath + file))
-    shutil.move(file, sourcePathString)
+    print("Trying to append: " + dirPath + "\\" + file)
+    img.append(cv2.imread(dirPath + "\\" + file))
 
 # declare open-cv variables
 height, width, layers = img[1].shape
 fourcc = cv2.VideoWriter_fourcc(*'I420')
-video = cv2.VideoWriter(dirPath + 'video.avi', fourcc, fpsInput, (width, height))
+video = cv2.VideoWriter(dirPath + "\\" +title + '.avi', fourcc, fpsInput, (width, height))
+
+
 
 # write all images to video
 for j in range(clip_count):
@@ -48,4 +51,9 @@ for j in range(clip_count):
 cv2.destroyAllWindows()
 video.release()
 
-print("Released video to: " + dirPath)
+# move files after processing
+for file in files:
+    if '.png' in file:
+        shutil.move(dirPath + "\\" + file, sourcePathString  + "\\" +  file)
+
+print("Released video to: " + dirPath + "\\" +title + '.avi')
