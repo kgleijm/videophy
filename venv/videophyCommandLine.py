@@ -5,7 +5,9 @@ import os
 import shutil
 # install open-cv if not yet installed
 os.system("pip install opencv-python")
+os.system("pip install natsort")
 from cv2 import cv2
+from natsort import natsorted, ns
 
 
 print('Number of arguments: {}'.format(len(sys.argv)))
@@ -30,8 +32,11 @@ except:
     pass
 
 # loop over all files in folder and store them as cv2 compatible images
+
+
 img = []
-for file in files:
+
+for file in natsorted(files):
     print("Trying to append: " + dirPath + "\\" + file)
     img.append(cv2.imread(dirPath + "\\" + file))
 
