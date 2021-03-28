@@ -1,4 +1,9 @@
 
+#py C:\Users\kevin\PycharmProjects\videophy\venv\videophyCommandLine.py C:\Users\kevin\Documents\LabyrinthProjectOutputFiles\TestSideWinder TestSideWinder 20
+# py C:\Users\kevin\PycharmProjects\videophy\venv\videophyCommandLine.py D:\Videos\LabyrinthOutputfiles\LabyrinthProjectOutputFiles\AlgoVisualizerOnMazeTest TestSideWinder 20
+# py C:\Users\kevin\PycharmProjects\videophy\venv\videophyCommandLine.py D:\Videos\LabyrinthOutputfiles\LabyrinthProjectOutputFiles\RecursiveBackTracker RecursiveBackTracker 10
+
+
 # import needed libraries
 import sys
 import os

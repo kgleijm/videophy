@@ -1,3 +1,4 @@
+# py C:\Users\kevin\PycharmProjects\videophy\venv\videophyCommandLine.py C:\Users\kevin\Documents\LabyrinthProjectOutputFiles\TestSideWinder TestSideWinder 20
 
 # import needed libraries
 import sys
