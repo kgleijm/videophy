@@ -21,7 +21,7 @@ with open("C:\\Users\\kevin\\PycharmProjects\\videophy\\venv\\textContainer.txt"
 #initialize margins
 noteWidth = 60 + maxWidth*11
 ruleSpace = 20
-noteHeigth = (lines + 3)*ruleSpace
+noteHeigth = (lines + 4)*ruleSpace
 sideMarging = 50
 
 # initialize image
@@ -71,8 +71,29 @@ for i in range(out.width):
     d.line((i, out.height, i, out.height - new), fill=(255, 0, 0, 0))
     last = new
 
+# rip left
+last = sideMarging/5
+for i in range(out.width):
+    if last <= 0.3*sideMarging/5:
+        new = last + random.randint(0,1)
+    elif last >= 0.7*sideMarging/5:
+        new = last + random.randint(-1, 0)
+    else:
+        new = last + random.randint(-1, 1)
+    d.line((0, i, new, i), fill=(255, 0, 0, 0))
+    last = new
 
-
+# rip right
+last = sideMarging/5
+for i in range(out.width):
+    if last <= 0.3*sideMarging/5:
+        new = last + random.randint(0,1)
+    elif last >= 0.7*sideMarging/5:
+        new = last + random.randint(-1, 0)
+    else:
+        new = last + random.randint(-1, 1)
+    d.line((out.width, i, out.width - new, i), fill=(255, 0, 0, 0))
+    last = new
 
 out.show()
 

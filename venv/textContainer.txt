@@ -1,9 +1,24 @@
-for i in range(50):
-    print("Hello World")
+import sys
+import os
+import random
+
+os.system("pip install --upgrade Pillow")
+from PIL import Image, ImageDraw, ImageFont
+
+# read absolute path from arguments
+# dirPath = sys.argv[1]
+
+# count lines
+lines = 0
+maxWidth = 0
+with open("C:\\Users\\kevin\\example.txt
+    for line in a_file:
+        lines += 1
+        maxWidth = max(maxWidth, len(line))
 
 
-
-print("it seems the")
-print("noteblockiphy")
-print("Algo is working great!")
-
+#initialize margins
+noteWidth = 60 + maxWidth*11
+ruleSpace = 20
+noteHeigth = (lines + 3)*ruleSpace
+sideMarging = 50
