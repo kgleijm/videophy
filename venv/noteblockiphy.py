@@ -2,8 +2,10 @@
 import sys
 import os
 import random
-
+from io import BytesIO
+os.system("pip install pywin32")
 os.system("pip install --upgrade Pillow")
+import win32clipboard
 from PIL import Image, ImageDraw, ImageFont
 
 # read absolute path from arguments
@@ -73,7 +75,7 @@ for i in range(out.width):
 
 # rip left
 last = sideMarging/5
-for i in range(out.width):
+for i in range(out.height):
     if last <= 0.3*sideMarging/5:
         new = last + random.randint(0,1)
     elif last >= 0.7*sideMarging/5:
@@ -85,7 +87,7 @@ for i in range(out.width):
 
 # rip right
 last = sideMarging/5
-for i in range(out.width):
+for i in range(out.height):
     if last <= 0.3*sideMarging/5:
         new = last + random.randint(0,1)
     elif last >= 0.7*sideMarging/5:
@@ -96,4 +98,5 @@ for i in range(out.width):
     last = new
 
 out.show()
+out.save("C:\\Users\\kevin\\PycharmProjects\\videophy\\venv\\output\\out.png")
 

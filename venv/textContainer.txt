@@ -1,24 +1,26 @@
-import sys
-import os
-import random
+// iterative cell calculated on stepcount
+int potentialX = stepCount % mazeWidth;
+int potentialY = (int) Math.Floor((double) stepCount / mazeWidth);
 
-os.system("pip install --upgrade Pillow")
-from PIL import Image, ImageDraw, ImageFont
+// get cell bound to coordinates
+currentCell = getCellAt(potentialX, potentialY);
+jump(potentialX, potentialY);
 
-# read absolute path from arguments
-# dirPath = sys.argv[1]
+// 50/50 chance of going down or right
+Direction direction = (random.NextDouble() > 0.5) ? Direction.DOWN : Direction.RIGHT;
+Direction otherDirection = (direction == Direction.DOWN) ? Direction.RIGHT : Direction.DOWN;
 
-# count lines
-lines = 0
-maxWidth = 0
-with open("C:\\Users\\kevin\\example.txt
-    for line in a_file:
-        lines += 1
-        maxWidth = max(maxWidth, len(line))
-
-
-#initialize margins
-noteWidth = 60 + maxWidth*11
-ruleSpace = 20
-noteHeigth = (lines + 3)*ruleSpace
-sideMarging = 50
+// implement binary tree maze logic
+if (canGo(direction))
+{
+    link(direction);
+}
+else if (canGo(otherDirection))
+{
+    link(otherDirection);
+}
+else
+{
+    Console.Out.WriteLine("no more cells left");
+    return false;
+}
